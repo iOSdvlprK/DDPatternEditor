@@ -63,7 +63,8 @@ struct PatternEditorView: View {
     }
 }
 
-#Preview {
+@available(iOS 17.0, *)
+#Preview(traits: .fixedLayout(width: 400, height: 300)) {
     PatternEditorView(
         n: 15,
         name: .constant("pattern"),

@@ -45,7 +45,8 @@ struct PatternGrid: View {
     }
 }
 
-#Preview {
+@available(iOS 17.0, *)
+#Preview(traits: .fixedLayout(width: 400, height: 300)) {
     PatternGrid(
         n: 15,
         pattern: .constant(Array(repeating: Array(repeating: false, count: 15), count: 15)),
