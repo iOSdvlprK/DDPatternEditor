@@ -12,6 +12,11 @@ struct ContentView: View {
     @State private var name: String = "pattern"
     @State private var pattern: [[Bool]]
     
+    // TODO: code string
+    var codeString: String {
+        "TODO: SOME CODE"
+    }
+    
     init(n: Int) {
         self.n = n
         self._pattern = State(
@@ -29,7 +34,10 @@ struct ContentView: View {
         HStack {
             PatternEditor()
             
-            CodePreview()
+            CodePreview(
+                name: name,
+                codeString: codeString
+            )
         }
         .padding()
         .frame(minWidth: 800, minHeight: 600)
@@ -40,13 +48,6 @@ struct PatternEditor: View {
     var body: some View {
         // TODO: pattern editor
         Text("Pattern Editor")
-    }
-}
-
-struct CodePreview: View {
-    var body: some View {
-        // TODO: code preview
-        Text("Code Preview")
     }
 }
 

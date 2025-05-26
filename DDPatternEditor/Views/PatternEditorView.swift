@@ -28,9 +28,11 @@ struct PatternEditorView: View {
                     TextField("Enter pattern name", text: $name)
                         .padding(6)
                         .overlay {
-                            // TODO: change stroke color and line width
                             RoundedRectangle(cornerRadius: 6)
-                                .stroke(Color.red, lineWidth: 1)
+                                .stroke(
+                                    name.isEmpty ? Color.red : Color.gray,
+                                    lineWidth: name.isEmpty ? 3 : 1
+                                )
                         }
                         .frame(maxWidth: .infinity)
                     
