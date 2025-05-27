@@ -20,9 +20,12 @@ struct CodePreview: View {
                     .background(Color.red.opacity(0.2))
             } else {
                 ScrollView {
-                    Text(codeString)
-                        .font(.title3)
-                        .multilineTextAlignment(.leading)
+                    HStack {
+                        Text(codeString)
+                            .font(.title3)
+                            .multilineTextAlignment(.leading)
+                        Spacer()
+                    }
                 }
                 .padding()
                 .background(Color.blue.opacity(0.2))

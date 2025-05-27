@@ -12,9 +12,26 @@ struct ContentView: View {
     @State private var name: String = "pattern"
     @State private var pattern: [[Bool]]
     
-    // TODO: code string
     var codeString: String {
-        "TODO: SOME CODE"
+        """
+        case .\(name):
+        return [
+        \(formattedPoints)]
+        """
+    }
+    
+    var formattedPoints: String {
+        var result = ""
+        
+        for i in 0..<n {
+            for j in 0..<n where pattern[i][j] {
+                let x = j - n/2
+                let y = i - n/2
+                result += "\t(\(x), \(y)),\n"
+            }
+        }
+        
+        return result
     }
     
     init(n: Int) {
@@ -32,25 +49,24 @@ struct ContentView: View {
     
     var body: some View {
         HStack {
-            PatternEditor()
-            
-            CodePreview(
-                name: name,
-                codeString: codeString
+            PatternEditorView(
+                n: n,
+                name: $name,
+                pattern: $pattern
             )
+            
+            if name.isValidIdentifier {
+                CodePreview(
+                    name: name,
+                    codeString: codeString
+                )
+            }
         }
         .padding()
-        .frame(minWidth: 800, minHeight: 600)
+        .frame(minWidth: 500, minHeight: 500)
     }
 }
 
-struct PatternEditor: View {
-    var body: some View {
-        // TODO: pattern editor
-        Text("Pattern Editor")
-    }
-}
-
-#Preview {
-    ContentView(n: 25)
+#Preview() {
+    ContentView(n: 15)
 }

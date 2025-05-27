@@ -49,7 +49,6 @@ struct PatternEditorView: View {
                 }
                 .font(.title2)
                 
-                // TODO: add identifier validation
                 if !name.isValidIdentifier {
                     Text("Invalid Identifier")
                         .font(.callout)
